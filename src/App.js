@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from './Header'
 import ThingList from './ThingList'
+import AddButton from './AddButton'
 import './App.css'
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <AddButton />
         <ThingList things={this.state.things}/>
       </div>
     );
