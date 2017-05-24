@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import Header from './Header'
 import ThingList from './ThingList'
 import AddButton from './AddButton'
+import base from './base'
 import './App.css'
 
 class App extends Component {
+  componentWillMount(){
+    base.syncState('things', {context: this, state: 'things'})
+  }
   state = {
     things: {
     }
@@ -28,7 +32,7 @@ class App extends Component {
     ev.preventDefault();
     const id = ev.currentTarget.id
     let clone = {...this.state.things}
-    delete clone[id]
+    clone[id] = null
     this.setState( {things: clone}) 
   }
 
