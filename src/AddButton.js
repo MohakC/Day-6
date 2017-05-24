@@ -3,7 +3,8 @@ import './AddButton.css'
 
 const AddButton = (props) => {
     return (
-        <button className="add-thing">Add Thing</button>
+        <button className="add-thing" onClick={props.add}>Add Thing</button>
     )
 }
+
 export default AddButton
