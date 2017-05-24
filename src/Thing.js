@@ -1,4 +1,5 @@
 import React from 'react'
+import DeleteButton from './DeleteButton'
 import './Thing.css'
 
 const Thing = (props) => {
@@ -8,12 +9,8 @@ const Thing = (props) => {
       <div className="details">
         <div className="name">
           {props.thing.name}
+          <DeleteButton deleteThings={props.deleteThings} thisid={props.thing.id} />
         </div>
-        <span className="actions">
-          <button className="remove" onClick={props.deleteThings} id={props.thing.id}>
-            <i className="fa fa-trash-o"></i>
-          </button>
-        </span>
       </div>
     </li>
   )
