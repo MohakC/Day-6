@@ -7,9 +7,6 @@ import './App.css'
 class App extends Component {
   state = {
     things: {
-      '1': {id: '1', name: 'Milk'},
-      '2': {id: '2', name: 'Bread'},
-      '3': {id: '3', name: 'Bibb lettuce'},
     }
   }
 
