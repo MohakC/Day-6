@@ -10,11 +10,11 @@ class App extends Component {
     }
   }
 
-  addThings(ev){
-    ev.preventDefault()
+  addThings(ev) {
+    ev.preventDefault() 
   }
 
-  handleChange(ev){
+  handleChange(ev) {
     const counter = Object.keys(this.state.things).length
     let clone = {...this.state.things}
     let newItem = {}
@@ -22,6 +22,14 @@ class App extends Component {
     clone[counter+1] = newItem
     this.setState( {things: clone} )
     ev.target.value = ""
+  }
+
+  deleteThings(ev) {
+    ev.preventDefault();
+    const id = ev.currentTarget.id
+    let clone = {...this.state.things}
+    delete clone[id]
+    this.setState( {things: clone}) 
   }
 
   render() {
@@ -32,7 +40,7 @@ class App extends Component {
         <AddButton add={this.addThings.bind(this)}/>
         <textarea className="input" placeholder="Enter a Thing you want to add" onBlur={this.handleChange.bind(this)}/>
         </div>
-        <ThingList things={this.state.things}/>
+        <ThingList things={this.state.things} deleteThings={this.deleteThings.bind(this)}/>
       </div>
     );
   }

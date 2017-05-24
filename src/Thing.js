@@ -10,7 +10,7 @@ const Thing = (props) => {
           {props.thing.name}
         </div>
         <span className="actions">
-          <button className="remove">
+          <button className="remove" onClick={props.deleteThings} id={props.thing.id}>
             <i className="fa fa-trash-o"></i>
           </button>
         </span>
