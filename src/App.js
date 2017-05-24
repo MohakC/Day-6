@@ -26,7 +26,7 @@ class App extends Component {
     newItem = {id: (counter+1).toString(), name: ev.currentTarget.children[1].value}
     clone[counter+1] = newItem
     this.setState( {things: clone} )
-    ev.target.value = ""
+    ev.currentTarget.children[1].value = ""
   }
 
   deleteThings(ev) {
