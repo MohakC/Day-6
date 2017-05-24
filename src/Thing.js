@@ -21,6 +21,13 @@ class Thing extends Component {
               deleteThings={props.deleteThings} 
               thisid={props.thing.id} 
             />
+            <input
+              className="date"
+              id={props.thing.id}
+              type="date"
+              onBlur={props.addDate}
+              defaultValue={props.thing.date}
+            />  
         </div>
       </div>
     </li>

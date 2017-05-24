@@ -19,7 +19,10 @@ class App extends Component {
     const counter = Object.keys(this.state.things).length
     let clone = {...this.state.things}
     let newItem = {}
-    newItem = {id: (counter+1).toString(), name: ev.currentTarget.children[1].value, checked: false}
+    newItem = {id: (counter+1).toString(), 
+              name: ev.currentTarget.children[1].value, 
+              checked: false,
+              date: "",}
     clone[counter+1] = newItem
     this.setState( {things: clone} )
     ev.currentTarget.children[1].value = ""
@@ -33,9 +36,15 @@ class App extends Component {
     this.setState( {things: clone}) 
   }
 
-  checkIt(ev){
+  checkIt(ev) {
     let clone = {...this.state.things}
     clone[ev.target.id].checked = ev.currentTarget.checked
+    this.setState( {things: clone} )
+  }
+
+  addDate(ev) {
+    let clone = {...this.state.things}
+    clone[ev.target.id].date = ev.target.value
     this.setState( {things: clone} )
   }
 
@@ -52,7 +61,9 @@ class App extends Component {
         <ThingList 
           things={this.state.things} 
           deleteThings={this.deleteThings.bind(this)} 
-          checkIt={this.checkIt.bind(this)}/>
+          checkIt={this.checkIt.bind(this)}
+          addDate={this.addDate.bind(this)}
+          />
       </div>
     );
   }

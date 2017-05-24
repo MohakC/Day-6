@@ -13,6 +13,7 @@ const ThingList = (props) => {
                             key={thingId} 
                             deleteThings={props.deleteThings}
                             checkIt={props.checkIt}
+                            addDate={props.addDate}
                             />)
       }
     </ul>
