@@ -14,16 +14,12 @@ class App extends Component {
     }
   }
 
-  addThings(ev) {
-    ev.preventDefault() 
-  }
-
   handleChange(ev) {
     ev.preventDefault()
     const counter = Object.keys(this.state.things).length
     let clone = {...this.state.things}
     let newItem = {}
-    newItem = {id: (counter+1).toString(), name: ev.currentTarget.children[1].value}
+    newItem = {id: (counter+1).toString(), name: ev.currentTarget.children[1].value, checked: false}
     clone[counter+1] = newItem
     this.setState( {things: clone} )
     ev.currentTarget.children[1].value = ""
@@ -37,6 +33,12 @@ class App extends Component {
     this.setState( {things: clone}) 
   }
 
+  checkIt(ev){
+    let clone = {...this.state.things}
+    clone[ev.target.id].checked = ev.currentTarget.checked
+    this.setState( {things: clone} )
+  }
+
   render() {
     return (
       <div className="App">
@@ -47,7 +49,10 @@ class App extends Component {
         <textarea className="input" placeholder="Enter a Thing you want to add" />
         </form>
         </div>
-        <ThingList things={this.state.things} deleteThings={this.deleteThings.bind(this)}/>
+        <ThingList 
+          things={this.state.things} 
+          deleteThings={this.deleteThings.bind(this)} 
+          checkIt={this.checkIt.bind(this)}/>
       </div>
     );
   }

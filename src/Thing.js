@@ -7,7 +7,7 @@ class Thing extends Component {
     const props = this.props
      return (
     <li className="Thing">
-      <input type="checkbox" value="on" />
+      <input type="checkbox" checked={props.thing.checked} onClick={props.checkIt} id={props.thing.id}/>
       <div className="details">
         <div className="name">
           {props.thing.name}
