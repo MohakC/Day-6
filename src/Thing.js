@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {Component } from 'react'
 import DeleteButton from './DeleteButton'
 import './Thing.css'
 
-const Thing = (props) => {
-  return (
+class Thing extends Component {
+  render(){
+    const props = this.props
+     return (
     <li className="Thing">
       <input type="checkbox" value="on" />
       <div className="details">
@@ -14,6 +16,7 @@ const Thing = (props) => {
       </div>
     </li>
   )
+  }
 }
 
 export default Thing
