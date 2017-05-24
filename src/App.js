@@ -22,10 +22,11 @@ class App extends Component {
     newItem = {id: (counter+1).toString(), 
               name: ev.currentTarget.children[1].value, 
               checked: false,
-              date: "",}
+              date: '',
+              promoted: "#F1F1F1"}
     clone[counter+1] = newItem
     this.setState( {things: clone} )
-    ev.currentTarget.children[1].value = ""
+    ev.currentTarget.children[1].value = ''
   }
 
   deleteThings(ev) {
@@ -48,6 +49,17 @@ class App extends Component {
     this.setState( {things: clone} )
   }
 
+  promoteIt(ev) {
+    let clone = {...this.state.things}
+    if (this.state.things[ev.currentTarget.id].promoted === "#F1F1F1"){
+      clone[ev.currentTarget.id].promoted = "grey"
+    }
+    else {
+      clone[ev.currentTarget.id].promoted = "#F1F1F1"
+    }
+    this.setState( {things: clone} )
+  }
+
   render() {
     return (
       <div className="App">
@@ -63,6 +75,7 @@ class App extends Component {
           deleteThings={this.deleteThings.bind(this)} 
           checkIt={this.checkIt.bind(this)}
           addDate={this.addDate.bind(this)}
+          promoteIt={this.promoteIt.bind(this)}
           />
       </div>
     );

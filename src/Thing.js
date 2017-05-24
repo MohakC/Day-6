@@ -1,12 +1,13 @@
 import React, {Component } from 'react'
 import DeleteButton from './DeleteButton'
+import PromoteButton from './PromoteButton'
 import './Thing.css'
 
 class Thing extends Component {
   render(){
     const props = this.props
      return (
-    <li className="Thing">
+    <li className="Thing" style={{backgroundColor: props.thing.promoted}}>
       <input 
         type="checkbox" 
         checked={props.thing.checked} 
@@ -20,6 +21,10 @@ class Thing extends Component {
             <DeleteButton 
               deleteThings={props.deleteThings} 
               thisid={props.thing.id} 
+            />
+            <PromoteButton 
+              promoteIt={props.promoteIt}
+              thisid={props.thing.id}
             />
             <input
               className="date"

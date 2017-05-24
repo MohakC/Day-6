@@ -14,7 +14,8 @@ const ThingList = (props) => {
                             deleteThings={props.deleteThings}
                             checkIt={props.checkIt}
                             addDate={props.addDate}
-                            />)
+                            promoteIt={props.promoteIt}
+                          />)
       }
     </ul>
   )
