@@ -3,7 +3,7 @@ import './AddButton.css'
 
 const AddButton = (props) => {
     return (
-        <button className="add-thing" onClick={props.add}>Add Thing</button>
+        <button className="add-thing submit">Add Thing</button>
     )
 }
 

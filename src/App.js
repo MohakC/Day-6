@@ -19,10 +19,11 @@ class App extends Component {
   }
 
   handleChange(ev) {
+    ev.preventDefault()
     const counter = Object.keys(this.state.things).length
     let clone = {...this.state.things}
     let newItem = {}
-    newItem = {id: (counter+1).toString(), name: ev.target.value}
+    newItem = {id: (counter+1).toString(), name: ev.currentTarget.children[1].value}
     clone[counter+1] = newItem
     this.setState( {things: clone} )
     ev.target.value = ""
@@ -41,8 +42,10 @@ class App extends Component {
       <div className="App">
         <Header />
         <div>
-        <AddButton add={this.addThings.bind(this)}/>
-        <textarea className="input" placeholder="Enter a Thing you want to add" onBlur={this.handleChange.bind(this)}/>
+        <form onSubmit={this.handleChange.bind(this)}>
+        <AddButton />
+        <textarea className="input" placeholder="Enter a Thing you want to add" />
+        </form>
         </div>
         <ThingList things={this.state.things} deleteThings={this.deleteThings.bind(this)}/>
       </div>
