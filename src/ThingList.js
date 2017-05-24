@@ -12,7 +12,8 @@ const ThingList = (props) => {
                             thing={props.things[thingId]} 
                             key={thingId} 
                             deleteThings={props.deleteThings}
-                            checkIt={props.checkIt}/>)
+                            checkIt={props.checkIt}
+                            />)
       }
     </ul>
   )

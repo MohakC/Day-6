@@ -7,11 +7,20 @@ class Thing extends Component {
     const props = this.props
      return (
     <li className="Thing">
-      <input type="checkbox" checked={props.thing.checked} onClick={props.checkIt} id={props.thing.id}/>
+      <input 
+        type="checkbox" 
+        checked={props.thing.checked} 
+        onClick={props.checkIt} 
+        id={props.thing.id} 
+        readOnly="true"
+      />
       <div className="details">
         <div className="name">
           {props.thing.name}
-          <DeleteButton deleteThings={props.deleteThings} thisid={props.thing.id} />
+            <DeleteButton 
+              deleteThings={props.deleteThings} 
+              thisid={props.thing.id} 
+            />
         </div>
       </div>
     </li>
