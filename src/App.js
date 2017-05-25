@@ -67,7 +67,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <div>
-        <SignOut /> 
+        <SignIn /> 
         <form onSubmit={this.handleChange.bind(this)}>
         <AddButton />
         <textarea className="input" placeholder="Enter a Thing you want to add" />
