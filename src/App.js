@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Header from './Header'
 import ThingList from './ThingList'
 import AddButton from './AddButton'
+import SignIn from './SignIn'
+import SignOut from './SignOut'
 import base from './base'
 import './App.css'
 
@@ -65,6 +67,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <div>
+        <SignOut /> 
         <form onSubmit={this.handleChange.bind(this)}>
         <AddButton />
         <textarea className="input" placeholder="Enter a Thing you want to add" />
