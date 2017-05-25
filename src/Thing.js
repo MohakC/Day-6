@@ -29,7 +29,7 @@ class Thing extends Component {
               className="date"
               id={props.thing.id}
               type="date"
-              onBlur={props.addDate}
+              onChange={props.addDate}
               defaultValue={props.thing.date}
             />  
         </div>
