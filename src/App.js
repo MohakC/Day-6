@@ -4,16 +4,22 @@ import ThingList from './ThingList'
 import AddButton from './AddButton'
 import SignIn from './SignIn'
 import SignOut from './SignOut'
-import base from './base'
+import base, { auth } from './base'
 import './App.css'
 
 class App extends Component {
+  state = {
+    things: {
+    },
+    uid: null,
+  }
+
   componentWillMount(){
     base.syncState('things', {context: this, state: 'things'})
   }
-  state = {
-    things: {
-    }
+  
+  authHandler = (authData) => {
+    this.setState({ uid: authData.user.uid})
   }
 
   handleChange(ev) {
@@ -25,7 +31,8 @@ class App extends Component {
               name: ev.currentTarget.children[1].value, 
               checked: false,
               date: '',
-              promoted: "#F1F1F1"}
+              promoted: "#F1F1F1",
+            }            
     clone[counter+1] = newItem
     this.setState( {things: clone} )
     ev.currentTarget.children[1].value = ''
@@ -62,12 +69,17 @@ class App extends Component {
     this.setState( {things: clone} )
   }
 
+  signOut() {
+    auth.signOut();
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
         <div>
-        <SignIn /> 
+        <SignIn authHandler={this.authHandler.bind(this)}/> 
+        <SignOut signOut={this.signOut.bind(this)} />
         <form onSubmit={this.handleChange.bind(this)}>
         <AddButton />
         <textarea className="input" placeholder="Enter a Thing you want to add" />
