@@ -10,10 +10,9 @@ class Thing extends Component {
     <li className="Thing" style={{backgroundColor: props.thing.promoted}}>
       <input 
         type="checkbox" 
-        checked={props.thing.checked} 
+        defaultChecked={props.thing.checked} 
         onClick={props.checkIt} 
         id={props.thing.id} 
-        readOnly="true"
       />
       <div className="details">
         <div className="name">
